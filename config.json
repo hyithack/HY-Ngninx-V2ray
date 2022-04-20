@@ -1,0 +1,40 @@
+{
+
+  "log": {
+      "access": "/var/log/v2ray/access.log",
+      "error": "/var/log/v2ray/error.log",
+      "loglevel": "info"
+  },
+  "inbounds": [{
+    "port": 30048,
+    "listen": "127.0.0.1",
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "7851a66a-f848-ca4c-c0e4-00657f07612c",
+          "level": 1,
+          "alterId": 64
+        }
+      ],
+      "disableInsecureEncryption": false
+    },
+    "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+            "path": "/apis/",
+            "headers": {
+                "Host": "hg.keep.fm"
+            }
+        }
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  },{
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }]
+}
